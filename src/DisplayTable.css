@@ -1,0 +1,18 @@
+.DisplayTable{
+    margin-top:1px;
+    display:inline-flex;
+    text-align: center;
+    color:white;
+}
+
+#table{
+    text-align:center;
+}
+th {
+    text-align: center;
+    width: 100px;
+}
+td{
+    text-align:center;
+    width:100px;
+}

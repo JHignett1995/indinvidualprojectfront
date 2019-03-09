@@ -1,0 +1,15 @@
+p{
+    color:white;
+}
+#pageContent{
+    margin-top:10px;
+}
+button {
+    margin-top: 5px;
+    color: white;
+    width: 33%;
+    background: none;
+    border-style: solid;
+    border-width: 6px;
+    border-color: white;
+}
