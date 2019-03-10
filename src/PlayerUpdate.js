@@ -6,17 +6,18 @@ class PlayerUpdate extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            updEmail:"",
-            email:"",
-            name: "",
-            title: "",
-            password: "",
-            games: [],
-            winCount: 0,
-            loseCount: 0,
-            count7Ball: 0,
-            rivalID: "",
-            isAdmin: false
+            updEmail: "",
+                email: "",
+                name: "",
+                title: "",
+                password: "",
+                games: [],
+                winCount: 0,
+                loseCount: 0,
+                count7Ball: 0,
+                rivalID: "",
+                isAdmin: false
+            
             
         }
         this.handleChange = this.handleChange.bind(this)
@@ -29,35 +30,30 @@ class PlayerUpdate extends Component {
 
             console.log(response.data);
             this.setState({
-                title: response.data.title,
-                games: response.data.games,
-                winCount: response.data.winCount,
-                loseCount: response.data.loseCount,
-                count7Ball: response.data.count7Ball,
-                rivalID: response.data.rivalID,
-                isAdmin: response.data.isAdmin
+                
+                        title: response.data[0].title,
+                        games: response.data[0].games,
+                        winCount: response.data[0].winCount,
+                        loseCount: response.data[0].loseCount,
+                        count7Ball: response.data[0].count7Ball,
+                        rivalID: response.data[0].rivalID,
+                        isAdmin: response.data[0].isAdmin
             });
         });
 
-        axios.delete(`http://localhost:8080/IndividualProject/api/player/deletePlayer/` + this.state.updEmail).then(response => {
-            alert(response.data.message);
-        });
-
-            axios.post(`http://localhost:8080/IndividualProject/api/player/createPlayer`, {
-                "email": this.state.email,
-                "name": this.state.name,
-                "title": this.state.title,
-                "password": this.state.password,
-                "games": this.state.games,
-                "winCount": this.state.winCount,
-                "loseCount": this.state.loseCount,
-                "count7Ball": this.state.count7Ball,
-                "rivalID": this.state.rivalID,
-                "isAdmin": this.state.isAdmin
-            }).then(response => {
-            
+        axios.post(`http://localhost:8080/IndividualProject/api/player/updatePlayer/` + this.state.updEmail, {
+            "email": this.state.email,
+            "name": this.state.name,
+            "title": this.state.title,
+            "password": this.state.password,
+            "games": this.state.games,
+            "winCount": this.state.winCount,
+            "loseCount": this.state.loseCount,
+            "count7Ball": this.state.count7Ball,
+            "rivalID": this.state.rivalID,
+            "isAdmin": this.state.isAdmin
         }).then(response => {
-            alert("Player Updated");
+            alert(response.data.message);
         });
     }
 
@@ -78,7 +74,7 @@ class PlayerUpdate extends Component {
                     <input id="email" placeholder="Email" type="email" onChange={this.handleChange}></input>
                     <input id="name" type="text" placeholder="Name" onChange={this.handleChange}></input>
                     <input id="password" placeholder="Password" type="password" onChange={this.handleChange}></input>
-                    <p><button onClick={this.submit}>Create</button></p>
+                    <p><button onClick={this.submit}>Update</button></p>
                 </form>
             </div>
         );

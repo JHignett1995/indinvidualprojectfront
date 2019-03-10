@@ -1,36 +1,71 @@
 import React, { Component } from 'react';
 import './GameSearch.css';
+import axios from 'axios';
 
 class GameSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            option: ""
+            refNum:0
         }
-        this.search = this.search.bind(this)
+        this.searchByRef = this.searchByRef.bind(this)
     }
 
-    search = (event) => {
-        event.preventDefault();
-        this.setState({
-            searchBy: "",
-
-
-
-          option: event.target.id
-        });
+    searchByRef = (event) => {
         
+            event.preventDefault();
+            axios.get("http://localhost:8080/IndividualProject/api/game/getAGame/"+this.state.refNum).then(response => {
+
+                console.log(response.data);
+                this.setState({
+                    rowNumber: response.data.length,
+                    data: response.data
+                });
+                this.addRow(response.data);
+            });
+    }
+    createRow(data) {
+        return (
+            <tr>
+                <td>{data.referenceNumber}</td>
+                <td>{data.playerId.email}</td>
+                <td>{data.resultStatus}</td>              
+            </tr>
+        );
+    }
+    addRow(data) {
+        var rows = [];
+        for (let i = 0; i < this.state.rowNumber; i++) {
+            rows.push(this.createRow(data[i]));
+        }
+        return <tbody>{rows}</tbody>;
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
     }
 
     render() {
         return (
             <div className="search">
                 <div id="searchCriteria">
-                    <form> <input type="number" placeholder="reference"></input> <button onClick={this.search}>Search</button></form>
-                    <form> <input type="text" placeholder="player"></input> <button onClick={this.search}>Search</button></form>                
-                    <form> <input type="text" placeholder="result"></input> <button onClick={this.search}>Search</button></form>
-                </div>
+                    <form> <input type="number" onChange={this.handleChange} placeholder="reference"></input> <button onClick={this.searchByRef}>Search</button></form>
+                   </div>
                 <div id="searchContent">
+                    <div className="DisplayTable">
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th>Game Reference</th>
+                                    <th>Game Email</th>
+                                    <th>Result</th>                                   
+                                </tr>
+                            </thead>
+                            {this.addRow(this.state.data)}
+                        </table>
+                    </div>
                 </div>
              </div>
         );
