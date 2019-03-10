@@ -19,7 +19,7 @@ class PlayerNav extends Component {
     }
 
     getAllRequest = (e) => {
-        axios.get("http://localhost:8080/IndividualProject/api/player/getAllPlayers/").then(response => {
+        axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAllPlayers/").then(response => {
 
             console.log(response.data);
             this.setState({
@@ -46,7 +46,7 @@ class PlayerNav extends Component {
     }
 
     deletePlayer = (user) => {
-        axios.delete(`http://localhost:8080/IndividualProject/api/player/deletePlayer/` + user).then(response => {
+        axios.delete(`http://35.189.110.9:8888/IndividualProject/api/player/deletePlayer/` + user).then(response => {
             alert(response.data.message);
         });
         this.render();

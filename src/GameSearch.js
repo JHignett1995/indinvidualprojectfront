@@ -14,7 +14,7 @@ class GameSearch extends Component {
     searchByRef = (event) => {
         
             event.preventDefault();
-            axios.get("http://localhost:8080/IndividualProject/api/game/getAGame/"+this.state.refNum).then(response => {
+            axios.get("http://35.189.110.9:8888/IndividualProject/api/game/getAGame/"+this.state.refNum).then(response => {
 
                 console.log(response.data);
                 this.setState({

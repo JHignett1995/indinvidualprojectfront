@@ -34,7 +34,7 @@ class PlayerSearch extends Component {
 
     getARequestChamp = (e) => {
         e.preventDefault();
-        axios.get("http://localhost:8080/IndividualProject/api/player/getAPlayerChamp/").then(response => {
+        axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerChamp/").then(response => {
 
             console.log(response.data);
             this.setState({
@@ -47,7 +47,7 @@ class PlayerSearch extends Component {
 
     getARequestEmail = (e) => {
         e.preventDefault();
-        axios.get("http://localhost:8080/IndividualProject/api/player/getAPlayerEmail/" + this.state.email).then(response => {
+        axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerEmail/" + this.state.email).then(response => {
 
             console.log(response.data);
             this.setState({
@@ -59,7 +59,7 @@ class PlayerSearch extends Component {
     }
     getARequestName = (e) => {
         e.preventDefault();
-        axios.get("http://localhost:8080/IndividualProject/api/player/getAPlayerName/" + this.state.name).then(response => {
+        axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerName/" + this.state.name).then(response => {
 
             console.log(response.data);
             this.setState({
@@ -71,7 +71,7 @@ class PlayerSearch extends Component {
     }
     getARequestWins = (e) => {
         e.preventDefault();
-        axios.get("http://localhost:8080/IndividualProject/api/player/getAPlayerWins/" + this.state.wins).then(response => {
+        axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerWins/" + this.state.wins).then(response => {
 
             console.log(response.data);
             this.setState({
@@ -97,7 +97,7 @@ class PlayerSearch extends Component {
     }
 
     deletePlayer = (user) => {
-        axios.delete(`http://localhost:8080/IndividualProject/api/player/deletePlayer/` + user).then(response => {
+        axios.delete(`http://35.189.110.9:8888/IndividualProject/api/player/deletePlayer/` + user).then(response => {
             alert(response.data.message);
         });
     }

@@ -23,7 +23,7 @@ class PlayerCreate extends Component {
     submit = (e) => {
         e.preventDefault();
         console.log(this.state);
-        axios.post(`http://localhost:8080/IndividualProject/api/player/createPlayer`, {
+        axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/createPlayer`, {
             "email": this.state.email,
                 "name": this.state.name,
                     "title": this.state.title,

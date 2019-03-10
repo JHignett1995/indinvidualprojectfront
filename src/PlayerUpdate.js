@@ -26,7 +26,7 @@ class PlayerUpdate extends Component {
     submit = (e) => {
         e.preventDefault();
 
-        axios.get("http://localhost:8080/IndividualProject/api/player/getAPlayerEmail/" + this.state.updEmail).then(response => {
+        axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerEmail/" + this.state.updEmail).then(response => {
 
             console.log(response.data);
             this.setState({
@@ -41,7 +41,7 @@ class PlayerUpdate extends Component {
             });
         });
 
-        axios.post(`http://localhost:8080/IndividualProject/api/player/updatePlayer/` + this.state.updEmail, {
+        axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/updatePlayer/` + this.state.updEmail, {
             "email": this.state.email,
             "name": this.state.name,
             "title": this.state.title,

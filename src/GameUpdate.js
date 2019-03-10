@@ -16,7 +16,7 @@ class GameUpdate extends Component {
 
     submit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:8080/IndividualProject/api/game/updateGame/`
+        axios.post(`http://35.189.110.9:8888/IndividualProject/api/game/updateGame/`
             + this.state.winner + `/`
             + this.state.loser + `/`
             + this.state.updRef + `/`
