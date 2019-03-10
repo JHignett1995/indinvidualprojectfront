@@ -27,7 +27,7 @@ class GameSearch extends Component {
     createRow(data) {
         return (
             <tr>
-                <td>{data.referenceNumber}</td>
+                <td>{data.reference}</td>
                 <td>{data.playerId.email}</td>
                 <td>{data.resultStatus}</td>              
             </tr>
