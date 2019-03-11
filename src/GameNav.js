@@ -18,7 +18,7 @@ class GameNav extends Component {
         this.addRow = this.addRow.bind(this);
     }
     getAllRequest = (e) => {
-        axios.get("http://localhost:8080/IndividualProject/api/game/getAllGames/").then(response => {
+        axios.get("http://35.189.110.9:8888/IndividualProject/api/game/getAllGames/").then(response => {
 
             console.log(response.data);
             this.setState({

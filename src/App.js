@@ -19,7 +19,7 @@ class App extends Component {
     handleLogin = (email, password) => {
         console.log(email);
         var self = this;
-        axios.post(`http://localhost:8080/IndividualProject/api/player/login/${email}/${password}`
+        axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/login/${email}/${password}`
         ).then(function (response) {
             if (response.data.message === "Login Successful") {
                 self.setState({ loggedIn: true, email:email});

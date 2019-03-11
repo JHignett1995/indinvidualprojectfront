@@ -16,7 +16,7 @@ class GameCreate extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8080/IndividualProject/api/player/getAllPlayers/` ).then(response => {
+        axios.get(`http://35.189.110.9:8888/IndividualProject/api/player/getAllPlayers/` ).then(response => {
 
             console.log(response.data);
             this.setState({
@@ -27,7 +27,7 @@ class GameCreate extends Component {
     
     submit=(e) =>{
         e.preventDefault();
-        axios.post("http://localhost:8080/IndividualProject/api/game/createGame/" + this.state.player1 +"/"+ this.state.player2
+        axios.post("http://35.189.110.9:8888/IndividualProject/api/game/createGame/" + this.state.player1 +"/"+ this.state.player2
         ).then(response => {
             alert(response.data.message);
         });
