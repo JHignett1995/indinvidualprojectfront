@@ -22,14 +22,14 @@ class PlayerCreate extends Component {
 
     submit = (e) => {
         e.preventDefault();
-        if (this.state.count7Ball.includes("on") || this.state.count7Ball.includes("off")) {
-            if (this.state.count7Ball.includes("on")) {
+        if (this.state.isAdmin.includes("on") || this.state.isAdmin.includes("off")) {
+            if (this.state.isAdmin.includes("on")) {
                 this.setState({
-                    count7Ball: true
+                    isAdmin: true
                 })
             } else {
                 this.setState({
-                    count7Ball: false
+                    isAdmin: false
                 })
             }
         }
