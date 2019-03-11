@@ -22,6 +22,17 @@ class PlayerCreate extends Component {
 
     submit = (e) => {
         e.preventDefault();
+        if (this.state.count7Ball.includes("on") || this.state.count7Ball.includes("off")) {
+            if (this.state.count7Ball.includes("on")) {
+                this.setState({
+                    count7Ball: true
+                })
+            } else {
+                this.setState({
+                    count7Ball: false
+                })
+            }
+        }
         console.log(this.state);
         axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/createPlayer`, {
             "email": this.state.email,

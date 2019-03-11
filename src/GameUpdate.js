@@ -16,6 +16,18 @@ class GameUpdate extends Component {
 
     submit = (e) => {
         e.preventDefault();
+        if (this.state.count7Ball.includes("on") || this.state.count7Ball.includes("off")) {
+            if (this.state.count7Ball.includes("on")) {
+                this.setState({
+                    count7Ball: true
+                })
+            } else {
+                this.setState({
+                    count7Ball: false
+                })
+            }
+        }
+
         axios.post(`http://35.189.110.9:8888/IndividualProject/api/game/updateGame/`
             + this.state.winner + `/`
             + this.state.loser + `/`
@@ -42,7 +54,7 @@ class GameUpdate extends Component {
                     <p>Update</p>
                     <input id="winner" type="email" placeholder="Winning Player Email" onChange={this.handleChange}></input>
                     <p><input id="loser" placeholder="Losing Player Email" type="email" onChange={this.handleChange}></input></p>
-                    <label><input id="count7Ball" type="checkbox" onChange={this.handleChange}></input>Was 7 Ball?</label>
+                    <label><input id="count7Ball" type="checkbox" name="Was7Ball" onClick={this.handleChange}></input>Was 7 Ball?</label>
                     <p><button onClick={this.submit}>Update</button></p>
                 </form>
             </div>
