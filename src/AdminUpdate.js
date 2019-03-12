@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './PlayerUpdate.css';
+import './AdminUpdate.css';
 
 class AdminUpdate extends Component {
     constructor(props) {
