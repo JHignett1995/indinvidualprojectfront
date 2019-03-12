@@ -145,7 +145,7 @@ class PlayerNav extends Component {
                             <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
                             <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
                             <div id="pageContent">
-                                <PlayerSearch />
+                                <PlayerSearch admin={this.state.admin}/>
                             </div>
                         </div>
                     );
@@ -156,7 +156,7 @@ class PlayerNav extends Component {
                             <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
                             <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
                             <div id="pageContent">
-                                <PlayerSearch />
+                                <PlayerSearch admin={this.state.admin} />/>
                             </div>
                         </div>
                     );
