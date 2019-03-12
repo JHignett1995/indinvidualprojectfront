@@ -4,6 +4,7 @@ import PlayerCreate from './PlayerCreate';
 import PlayerUpdate from './PlayerUpdate';
 import './DisplayTable.css';
 import axios from 'axios';
+import AdminUpdate from './AdminUpdate';
 
 class PlayerNav extends Component {
     constructor(props) {
@@ -118,7 +119,7 @@ class PlayerNav extends Component {
                             <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
                             <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
                             <div id="pageContent">
-                                
+                                <AdminUpdate/>
                             </div>
                         </div>
                     );

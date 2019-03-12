@@ -44,21 +44,6 @@ class PlayerUpdate extends Component {
     submit = (e) => {
         e.preventDefault();
 
-        /*axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerEmail/" + this.state.updEmail).then(response => {
-
-            console.log(response.data);
-            this.setState({
-                email: response.data[0].email,
-                title: response.data[0].title,
-                games: response.data[0].games,
-                winCount: response.data[0].winCount,
-                loseCount: response.data[0].loseCount,
-                count7Ball: response.data[0].count7Ball,
-                rivalID: response.data[0].rivalID,
-                isAdmin: response.data[0].isAdmin
-            });
-        });*/
-
         axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/updatePlayer/` + this.state.updEmail, {
             "email": this.state.email,
             "name": this.state.name,
