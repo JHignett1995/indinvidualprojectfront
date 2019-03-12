@@ -52,9 +52,13 @@ class PlayerCreate extends Component {
 
 
     handleChange = (event) => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
+        if ([event.target.id] != "isAdmin") {
+            this.setState({
+                [event.target.id]: event.target.value
+            });
+        } else {
+            this.setState({ [event.target.id]: event.target.checked})
+        }
         console.log(this.state);
 
     }
