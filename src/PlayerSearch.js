@@ -103,7 +103,7 @@ class PlayerSearch extends Component {
     }
 
     getDeleteButton(user) {
-        if (this.props.admin) {
+        if (this.state.admin) {
             return <button onClick={() => { this.deletePlayer(user) }}>Delete</button>;
         }
     }
