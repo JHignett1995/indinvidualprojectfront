@@ -25,6 +25,7 @@ class Navbar extends Component {
     render() {
         switch (this.state.display) {
             case "about":
+                console.log(this.state.admin);
                 return (
                     <div className="Navbar">
                         <button id="player" value={this.state.display} onClick={this.handleChange}>Player</button>
