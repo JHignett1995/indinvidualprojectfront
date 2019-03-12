@@ -148,7 +148,7 @@ class PlayerNav extends Component {
                 }
                 break;
             case "findAll":
-                if () {
+                if (this.state.admin) {
                     return (
                         <div className="playerNav">
                             <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
