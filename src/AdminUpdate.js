@@ -75,7 +75,7 @@ class AdminUpdate extends Component {
             <div>
                 <form id="updatePlayer">
                     As a Admin you can update all details listed for:
-                    <input id="updEmail" type="email" placeholder="Email" onChange={this.handleChange}></input>
+                    <p><input id="updEmail" type="email" placeholder="Email" onChange={this.handleChange}></input></p>
                     <p>please fill in all fields</p>
                     <input id="name" type="text" placeholder={this.state.name} onChange={this.handleChange}></input>
                     <input id="password" placeholder="Password" type="password" onChange={this.handleChange}></input>
@@ -84,7 +84,7 @@ class AdminUpdate extends Component {
                     <input id="loseCount" type="number" placeholder={this.state.loseCount} onChange={this.handleChange}></input>
                     <input id="count7Ball" placeholder={this.state.count7Ball} type="number" onChange={this.handleChange}></input>
                     <input id="rivalID" type="text" placeholder={this.state.rivalID} onChange={this.handleChange}></input>
-                    <input id="isAdmin" type="checkbox" checked={this.state.isAdmin} onChange={this.handleChange}></input>
+                    <p><input id="isAdmin" type="checkbox" checked={this.state.isAdmin} onChange={this.handleChange}></input></p>
                     <p><button onClick={this.submit}>Update</button></p>
                 </form>
             </div>
