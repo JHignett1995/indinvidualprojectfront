@@ -22,7 +22,7 @@ class App extends Component {
         axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/login/${email}/${password}`
         ).then(function (response) {
             if (response.data.message === "Login Successful") {
-                self.setState({ loggedIn: true, email: email, isAdmin: response.data.isAdmin });
+                self.setState({ loggedIn: true, email: email, isAdmin: response.data.admin });
             } else {
                 alert(response.data.message);
             }
