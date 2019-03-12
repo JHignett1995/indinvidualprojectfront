@@ -55,6 +55,8 @@ class PlayerCreate extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+
+
     }
 
     render() {
@@ -64,7 +66,7 @@ class PlayerCreate extends Component {
                     <input id="name" type="text" placeholder="Name" onChange={this.handleChange}></input>
                     <input id="email" placeholder="Email" type="email" onChange={this.handleChange}></input>
                     <input id="password" placeholder="Password" type="password" onChange={this.handleChange}></input>
-                    <p><label><input id="isAdmin" value={this.state.isAdmin} type="checkbox" name="Is Admin?" onClick={this.handleChange}></input>Admin Account</label></p>
+                    <p><label><input id="isAdmin" type="checkbox" name="Is Admin?" onChange={this.handleChange}></input>Admin Account</label></p>
                     <p><button onClick={this.submit}>Create</button></p>
                 </form>
             </div>
