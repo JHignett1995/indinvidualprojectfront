@@ -17,12 +17,12 @@ class App extends Component {
     }
 
     handleLogin = (email, password) => {
-        console.log(email);
+        
         var self = this;
         axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/login/${email}/${password}`
         ).then(function (response) {
             if (response.data.message === "Login Successful") {
-                self.setState({ loggedIn: true, email:email});
+                self.setState({ loggedIn: true, email: email, isAdmin: response.data.isAdmin });
             } else {
                 alert(response.data.message);
             }
@@ -30,7 +30,8 @@ class App extends Component {
                 console.log(error);
             alert("problem");
         });
-        
+        console.log(email);
+        console.log(this.state.isAdmin);
     }
     handleLogout = () => {
         this.setState({ loggedIn: false, email: "" });
