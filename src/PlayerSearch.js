@@ -83,6 +83,7 @@ class PlayerSearch extends Component {
     }
 
     createRow(data) {
+        console.log(this.state.admin);
         return (
             <tr>
                 <td>{data.email}</td>
