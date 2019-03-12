@@ -66,7 +66,6 @@ class AdminUpdate extends Component {
                     rivalID: response.data[0].rivalID,
                     isAdmin: response.data[0].isAdmin
                 });
-                this.forceUpdate();
             });            
         }
     }
