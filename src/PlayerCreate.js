@@ -22,8 +22,8 @@ class PlayerCreate extends Component {
 
     submit = (e) => {
         e.preventDefault();
-        if (this.state.isAdmin.includes("on") || this.state.isAdmin.includes("off")) {
-            if (this.state.isAdmin.includes("on")) {
+        if (this.state.isAdmin === "on" || this.state.isAdmin === "off") {
+            if (this.state.isAdmin ==="on") {
                 this.setState({
                     isAdmin: true
                 })

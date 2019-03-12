@@ -16,8 +16,8 @@ class GameUpdate extends Component {
 
     submit = (e) => {
         e.preventDefault();
-        if (this.state.count7Ball.includes("on") || this.state.count7Ball.includes("off")) {
-            if (this.state.count7Ball.includes("on")) {
+        if (this.state.count7Ball ==="on" || this.state.count7Ball ==="off") {
+            if (this.state.count7Ball ==="on") {
                 this.setState({
                     count7Ball: true
                 })
@@ -28,7 +28,7 @@ class GameUpdate extends Component {
             }
         }
 
-        axios.post(`http://35.189.110.9:8888/IndividualProject/api/game/updateGame/`
+        axios.post(`http://35.189.110.9:8888/IndividualProject/api/game/updateGame/` 
             + this.state.winner + `/`
             + this.state.loser + `/`
             + this.state.updRef + `/`
