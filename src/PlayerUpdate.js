@@ -6,7 +6,7 @@ class PlayerUpdate extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            updEmail: "",
+            updEmail: this.props.email,
                 email: "",
                 name: "",
                 title: "",
@@ -23,23 +23,41 @@ class PlayerUpdate extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    submit = (e) => {
-        e.preventDefault();
-
+    componentDidMount() {
         axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerEmail/" + this.state.updEmail).then(response => {
 
             console.log(response.data);
             this.setState({
-                
-                        title: response.data[0].title,
-                        games: response.data[0].games,
-                        winCount: response.data[0].winCount,
-                        loseCount: response.data[0].loseCount,
-                        count7Ball: response.data[0].count7Ball,
-                        rivalID: response.data[0].rivalID,
-                        isAdmin: response.data[0].isAdmin
+                name: response.data[0].name,
+                email: response.data[0].email,
+                title: response.data[0].title,
+                games: response.data[0].games,
+                winCount: response.data[0].winCount,
+                loseCount: response.data[0].loseCount,
+                count7Ball: response.data[0].count7Ball,
+                rivalID: response.data[0].rivalID,
+                isAdmin: response.data[0].isAdmin
             });
         });
+    }
+
+    submit = (e) => {
+        e.preventDefault();
+
+        /*axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerEmail/" + this.state.updEmail).then(response => {
+
+            console.log(response.data);
+            this.setState({
+                email: response.data[0].email,
+                title: response.data[0].title,
+                games: response.data[0].games,
+                winCount: response.data[0].winCount,
+                loseCount: response.data[0].loseCount,
+                count7Ball: response.data[0].count7Ball,
+                rivalID: response.data[0].rivalID,
+                isAdmin: response.data[0].isAdmin
+            });
+        });*/
 
         axios.post(`http://35.189.110.9:8888/IndividualProject/api/player/updatePlayer/` + this.state.updEmail, {
             "email": this.state.email,
@@ -68,11 +86,9 @@ class PlayerUpdate extends Component {
         return (
             <div>
                 <form id="updatePlayer">
-                    Account To Update
-                    <p><input id="updEmail" placeholder="Email" type="email" onChange={this.handleChange}></input></p>
+                    As a Player you can only update your details listed:
                     <p>New Credentials</p>
-                    <input id="email" placeholder="Email" type="email" onChange={this.handleChange}></input>
-                    <input id="name" type="text" placeholder="Name" onChange={this.handleChange}></input>
+                    <input id="name" type="text" placeholder={this.state.name} onChange={this.handleChange}></input>
                     <input id="password" placeholder="Password" type="password" onChange={this.handleChange}></input>
                     <p><button onClick={this.submit}>Update</button></p>
                 </form>

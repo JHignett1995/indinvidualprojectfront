@@ -104,7 +104,7 @@ class PlayerNav extends Component {
                             <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
                             <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
                             <div id="pageContent">
-                                <PlayerUpdate email={this.state.email}/>
+                                
                             </div>
                         </div>
                     );
