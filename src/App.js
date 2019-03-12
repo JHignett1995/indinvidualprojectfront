@@ -56,7 +56,7 @@ class App extends Component {
                             <button id="logOut" onClick={this.handleLogout}>Logout</button>
                         </div>
                     </div>
-                    <Navbar email={this.state.email} admin={this.state.admin}/>
+                    <Navbar email={this.state.email} admin={this.state.isAdmin}/>
                 </div>
         )}
     
