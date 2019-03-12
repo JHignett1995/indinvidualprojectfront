@@ -25,7 +25,7 @@ class App extends Component {
                 self.setState({ loggedIn: true, email: email, isAdmin: response.data.admin });
                 console.log(response.data.admin);
                 console.log(email);
-                console.log(this.state.isAdmin);
+                console.log(self.state.isAdmin);
             } else {
                 alert(response.data.message);
             }
