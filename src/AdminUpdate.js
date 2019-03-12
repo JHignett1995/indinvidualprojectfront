@@ -67,7 +67,7 @@ class AdminUpdate extends Component {
                     isAdmin: response.data[0].isAdmin
                 });
             });
-            this.render();
+            this.forceUpdate();
         }
     }
 
