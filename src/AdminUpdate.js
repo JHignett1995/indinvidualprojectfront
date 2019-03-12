@@ -51,7 +51,7 @@ class AdminUpdate extends Component {
             this.setState({ [event.target.id]: event.target.checked });
         }
 
-        if (this.updEmail.includes(".com")) {
+        if (this.state.updEmail.includes(".com")) {
             axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerEmail/" + this.state.updEmail).then(response => {
 
                 console.log(response.data);
