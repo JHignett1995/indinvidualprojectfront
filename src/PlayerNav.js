@@ -81,6 +81,7 @@ class PlayerNav extends Component {
     }
 
     render() {
+        console.log(this.state.admin);
         switch (this.state.option) {
             case "create":
                 if (this.state.admin) {
