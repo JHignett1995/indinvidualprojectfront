@@ -85,8 +85,6 @@ class AdminUpdate extends Component {
                 <button onClick={this.fetchPlayer}>Get Player</button>
                 </form>
                 <form id="updatePlayer">
-                    As a Admin you can update all details listed for:
-                    <p><input id="updEmail" type="email" placeholder="Email" onChange={this.handleChange}></input></p>
                     <p>please fill in all fields</p>
                     <input id="name" type="text" placeholder={this.state.name} onChange={this.handleChange}></input>
                     <input id="password" placeholder="Password" type="password" onChange={this.handleChange}></input>
