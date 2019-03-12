@@ -25,6 +25,7 @@ class GameUpdate extends Component {
                 this.setState({
                     count7Ball: false
                 })
+                console.log(this.state.count7Ball);
             }
         }
 

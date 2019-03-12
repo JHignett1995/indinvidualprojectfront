@@ -57,7 +57,8 @@ class PlayerCreate extends Component {
                 [event.target.id]: event.target.value
             });
         } else {
-            this.setState({ [event.target.id]: event.target.checked})
+            this.setState({ [event.target.id]: event.target.checked })
+            console.log(this.state.isAdmin);
         }
     }
 
