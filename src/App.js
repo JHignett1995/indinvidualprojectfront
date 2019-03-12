@@ -23,6 +23,7 @@ class App extends Component {
         ).then(function (response) {
             if (response.data.message === "Login Successful") {
                 self.setState({ loggedIn: true, email: email, isAdmin: response.data.admin });
+                console.log(response.data.admin);
             } else {
                 alert(response.data.message);
             }
