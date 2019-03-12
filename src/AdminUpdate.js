@@ -50,7 +50,10 @@ class AdminUpdate extends Component {
         } else {
             this.setState({ [event.target.id]: event.target.checked });
         }
+    }
 
+    fetchPlayer = (e) => {
+        e.preventDefault();
         if (this.state.updEmail.includes(".com")) {
             axios.get("http://35.189.110.9:8888/IndividualProject/api/player/getAPlayerEmail/" + this.state.updEmail).then(response => {
 
@@ -66,13 +69,21 @@ class AdminUpdate extends Component {
                     rivalID: response.data[0].rivalID,
                     isAdmin: response.data[0].isAdmin
                 });
-            });            
+            });
+        } else {
+            alert("email not complete exampl: 1@qa.com or 1@academytrainee.com");
         }
     }
+
 
     render() {
         return (
             <div>
+                <form id="PlayerFetch">
+                    As a Admin you can update all details listed for:
+                    <p><input id="updEmail" type="email" placeholder="Email" onChange={this.handleChange}></input></p>
+                <button onClick={this.fetchPlayer}>Get Player</button>
+                </form>
                 <form id="updatePlayer">
                     As a Admin you can update all details listed for:
                     <p><input id="updEmail" type="email" placeholder="Email" onChange={this.handleChange}></input></p>
