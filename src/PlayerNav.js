@@ -83,6 +83,7 @@ class PlayerNav extends Component {
     render() {
         switch (this.state.option) {
             case "create":
+                if (this.state.admin) {
                     return (
                         <div className="playerNav">
                             <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
@@ -94,6 +95,18 @@ class PlayerNav extends Component {
                             </div>
                         </div>
                     );
+                } else {
+                    return (
+                        <div className="playerNav">
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <PlayerCreate />
+                            </div>
+                        </div>
+                    );
+                }
                 break;
             case "update":
                 if (this.state.admin) {
