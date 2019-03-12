@@ -40,9 +40,13 @@ class GameUpdate extends Component {
 
 
     handleChange = (event) => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
+        if ([event.target.id] != "count7Ball") {
+            this.setState({
+                [event.target.id]: event.target.value
+            });
+        } else {
+            this.setState({ [event.target.id]: event.target.checked })
+        }
     }
 
     render() {
