@@ -7,7 +7,7 @@ class PlayerSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
+            admin: this.props.admin,
             name: "",
             wins:0,
             rowNumber: 0,
@@ -103,7 +103,7 @@ class PlayerSearch extends Component {
     }
 
     getDeleteButton(user) {
-        if (this.props.email.includes("@qa.com")) {
+        if (this.props.admin) {
             return <button onClick={() => { this.deletePlayer(user) }}>Delete</button>;
         }
     }
