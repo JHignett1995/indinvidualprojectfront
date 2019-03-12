@@ -24,6 +24,8 @@ class App extends Component {
             if (response.data.message === "Login Successful") {
                 self.setState({ loggedIn: true, email: email, isAdmin: response.data.admin });
                 console.log(response.data.admin);
+                console.log(email);
+                console.log(this.state.isAdmin);
             } else {
                 alert(response.data.message);
             }
@@ -31,8 +33,7 @@ class App extends Component {
                 console.log(error);
             alert("problem");
         });
-        console.log(email);
-        console.log(this.state.isAdmin);
+        
     }
     handleLogout = () => {
         this.setState({ loggedIn: false, email: "" });
