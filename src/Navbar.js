@@ -9,6 +9,7 @@ class Navbar extends Component {
         super(props)
         this.state = {
             email: this.props.email,
+            admin: this.props.admin,
             display: "about"
         }
         this.handleChange = this.handleChange.bind(this)
@@ -24,6 +25,7 @@ class Navbar extends Component {
     render() {
         switch (this.state.display) {
             case "about":
+                if (this.state.admin) {
                 return (
                     <div className="Navbar">
                         <button id="player" value={this.state.display} onClick={this.handleChange}>Player</button>
@@ -45,7 +47,7 @@ class Navbar extends Component {
                         <button id="game" value={this.state.display} onClick={this.handleChange}>Game</button>
                         <button id="about" value={this.state.display} onClick={this.handleChange}>About</button>
                         <div id="pageContent">
-                            <PlayerNav email={this.state.email}/>
+                            <PlayerNav email={this.state.email} admin={this.state.admin} />
                         </div>
                     </div>
                 );
@@ -57,7 +59,7 @@ class Navbar extends Component {
                         <button id="game" value={this.state.display} onClick={this.handleChange}>Game</button>
                         <button id="about" value={this.state.display} onClick={this.handleChange}>About</button>
                         <div id="pageContent">
-                            <GameNav/>
+                            <GameNav email={this.state.email} admin={this.state.admin} />
                         </div>
                     </div>
                 );

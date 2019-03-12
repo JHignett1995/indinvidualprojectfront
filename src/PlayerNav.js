@@ -12,7 +12,8 @@ class PlayerNav extends Component {
             option: "",
             rowNumber: 0,
             data: "",
-            userEmail: this.props.email
+            email: this.props.email,
+            admin: this.props.admin
         }
         this.handleChange = this.handleChange.bind(this);
         this.addRow = this.addRow.bind(this);
@@ -53,7 +54,7 @@ class PlayerNav extends Component {
     }
     
     getDeleteButton(user) {
-        if (this.state.userEmail.includes("@qa.com")) {
+        if (this.state.admin) {
             return <button onClick={() => { this.deletePlayer(user) }}>Delete</button>;
         }
     }
@@ -82,82 +83,147 @@ class PlayerNav extends Component {
     render() {
         switch (this.state.option) {
             case "create":
-                return (
-                    <div className="playerNav">
-                        <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
-                        <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
-                        <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
-                        <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
-                        <div id="pageContent">
-                            <PlayerCreate/>
-                        </div>
-                    </div>
-                );
-                break;
-            case "update":
-                return (
-                    <div className="playerNav">
-                        <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
-                        <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
-                        <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
-                        <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
-                        <div id="pageContent">
-                            <PlayerUpdate/>
-                        </div>
-                    </div>
-                );
-                break;
-            case "findA":
-                return (
-                    <div className="playerNav">
-                        <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
-                        <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
-                        <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
-                        <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
-                        <div id="pageContent">
-                            <PlayerSearch/>
-                        </div>
-                    </div>
-                );
-                break;
-            case "findAll":
-                return (
-                    <div className="playerNav">
-                        <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
-                        <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
-                        <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
-                        <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
-                        <div id="pageContent">
-                            <div className="DisplayTable">
-                                <table id="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Email</th>
-                                            <th>Name</th>
-                                            <th>Wins</th>
-                                            <th>Losses</th>
-                                            <th>7 ball count</th>
-                                            <th>Rival</th>
-                                        </tr>
-                                    </thead>
-                                    {this.addRow(this.state.data)}
-                                </table>
+                    return (
+                        <div className="playerNav">
+                            <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <PlayerCreate />
                             </div>
                         </div>
-                    </div>
-                );
+                    );
+                break;
+            case "update":
+                if (this.state.admin) {
+                    return (
+                        <div className="playerNav">
+                            <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <PlayerUpdate email={this.state.email}/>
+                            </div>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className="playerNav">
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <PlayerUpdate email={this.state.email}/>
+                            </div>
+                        </div>
+                    );
+                }
+                break;
+            case "findA":
+                if (this.state.admin) {
+                    return (
+                        <div className="playerNav">
+                            <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <PlayerSearch />
+                            </div>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className="playerNav">
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <PlayerSearch />
+                            </div>
+                        </div>
+                    );
+                }
+                break;
+            case "findAll":
+                if () {
+                    return (
+                        <div className="playerNav">
+                            <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <div className="DisplayTable">
+                                    <table id="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Name</th>
+                                                <th>Wins</th>
+                                                <th>Losses</th>
+                                                <th>7 ball count</th>
+                                                <th>Rival</th>
+                                            </tr>
+                                        </thead>
+                                        {this.addRow(this.state.data)}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className="playerNav">
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                                <div className="DisplayTable">
+                                    <table id="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Name</th>
+                                                <th>Wins</th>
+                                                <th>Losses</th>
+                                                <th>7 ball count</th>
+                                                <th>Rival</th>
+                                            </tr>
+                                        </thead>
+                                        {this.addRow(this.state.data)}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
                 break;
             default:
-                return (
-                    <div className="playerNav">
-                        <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
-                        <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
-                        <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
-                        <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
-                        <div id="pageContent">
+                if (this.state.admin) {
+                    return (
+                        <div className="playerNav">
+                            <button id="create" value={this.state.option} onClick={this.handleChange}>Create a Player</button>
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                            </div>
                         </div>
-                    </div>
-                );
+                    );
+                } else {
+                    return (
+                        <div className="playerNav">
+                            <button id="update" value={this.state.option} onClick={this.handleChange}>Update a Player</button>
+                            <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Player</button>
+                            <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Players</button>
+                            <div id="pageContent">
+                            </div>
+                        </div>
+                    );
+                }
         }
     }
 }
