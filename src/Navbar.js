@@ -19,7 +19,6 @@ class Navbar extends Component {
         this.setState({
             display: event.target.id
         });
-        console.log(this.state.email);
     }
 
     render() {

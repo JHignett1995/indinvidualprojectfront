@@ -12,7 +12,8 @@ class GameNav extends Component {
             option: "",
             rowNumber: 0,
             data: "",
-            userEmail: this.props.email
+            user: this.props.email,
+            admin: this.props.admin
         }
         this.handleChange = this.handleChange.bind(this);
         this.addRow = this.addRow.bind(this);
@@ -80,7 +81,7 @@ class GameNav extends Component {
                         <button id="findA" value={this.state.option} onClick={this.handleChange}>Find a Game</button>
                         <button id="findAll" value={this.state.option} onClick={this.handleChange}>Find all Games</button>
                         <div id="pageContent">
-                            <GameUpdate />
+                            <GameUpdate admin={this.state.admin} user={this.state.user}/>
                         </div>
                     </div>
                 );
